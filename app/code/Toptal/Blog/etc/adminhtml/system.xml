@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- Enable/Disable Module depending on the admin setting -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <!-- ids of tab, section tags and value of tab tag (child) in section tag (parent) are same (topital_blog)-->
+        <tab id="topital_blog" translate="label" sortOrder="200">
+           <label>Topital Blog</label>
+        </tab>
+        <section id="topital_blog" translate="label" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+           <class>separator-top</class>
+           <label>Blog</label>
+           <tab>topital_blog</tab>
+           <resource>Topital_Blog::configuration</resource>
+           <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                     <label>Enable Module</label>
+                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+          </group>
+       </section>
+     </system>
+</config>

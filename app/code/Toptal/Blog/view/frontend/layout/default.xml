@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Display module link in the footer -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+       <referenceBlock name="footer_links">
+            <!-- Show/hide Module depending on the admin setting via ifconfig="{section_id}/{group_id}/{field_id}" attribute -->
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="blog-link" ifconfig="topital_blog/general/enable">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Topital Blog</argument>
+                    <argument name="path" xsi:type="string">blog</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
