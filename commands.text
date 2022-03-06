@@ -1,0 +1,43 @@
+Magento2: 12345@maiSON | username[c8f9f052eaf92906ba625a4b99ef26b5]|pass[0ee5526c9e39316c2623152222b8b531]
+
+php -d memory_limit=-1 ./bin/magento setup:install --base-url=http://localhost:8787/ --db-host=mysql:33066 --db-name=magento243 --db-user=admin --db-password=admin --admin-firstname=Magento --admin-lastname=User --admin-email=admin@example.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --backend-frontname=admin --search-engine=elasticsearch7 --elasticsearch-host=elasticsearch --elasticsearch-port=9200
+
+php ./bin/magento setup:uninstall
+
+Switch modes
+
+Switch to production mode.
+	php bin/magento deploy:mode:set production
+	php bin/magento cache:flush
+
+Switch to developer mode.
+	php bin/magento deploy:mode:set developer
+	php bin/magento cache:flush
+
+	chmod -R 777 var pub/static generated generated/
+	chmod -R 777 /var/www/html/var
+
+Run these command to upgrade the database and deploy static view files
+
+	php bin/magento indexer:reindex
+	php bin/magento setup:upgrade
+	php bin/magento setup:di:compile
+	php bin/magento setup:static-content:deploy -f
+	php bin/magento cache:flush
+
+	php bin/magento module:disable Magento_TwoFactorAuth
+
+Create a new docker machine with name=default, memory size=8GB and disk size=100G:
+	docker-machine -D create -d virtualbox --virtualbox-memory 8096 --virtualbox-disk-size "100000" default
+
+
+TESTING
+	Public Key: c8f9f052eaf92906ba625a4b99ef26b5 Copy
+	Private Key: 0ee5526c9e39316c2623152222b8b531 Copy
+
+DEVELOP
+	Public Key: 176c5797e95f280e67942ad5b843ff7d Copy
+	Private Key: 245b1de0036004c40baac1d83bc6cd7a Copy
+
+Connect to redis remote server with host, port and password
+	redis-cli -h 127.0.0.1 -p 63790 -a 123@haPHAT
